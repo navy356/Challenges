@@ -1,0 +1,21 @@
+{% extends "frequency/base.html" %}
+{% block title %}Frequency distribution generator{% endblock %}
+{% block include %}
+{% load static %}
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" type="text/css" href="/{%if request.GET.color %}{{ request.GET.color }}{% else %}navy{% endif %}/index.css">
+{% endblock %}
+{% block content %}
+    {% if form %}
+    <form action = "">
+        {% csrf_token %}
+        {{form.as_p }}
+        <button type="submit" value="submit">Submit</button>
+    </form>
+    {% endif %}
+    {% if data %}
+        <div>
+        {% for k,v in data.items %}{{ k }}{% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

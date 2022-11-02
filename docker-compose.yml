@@ -1,0 +1,17 @@
+version: '3'
+services:
+  django:
+    build: .
+    volumes:
+      - ".:/code"
+    links:
+      - selenium
+    ports:
+      - "8000:8000"
+    environment:
+      - FLAG=1_L0v3~C5S
+  selenium:
+    build: selenium
+    ports:
+      - 4444:4444
+      - 5900:5900

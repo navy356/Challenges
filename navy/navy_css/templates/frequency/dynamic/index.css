@@ -1,0 +1,3 @@
+body {
+    background-color: {% if color %}{{color|safe}}{% else %}navy{% endif %};
+  }
