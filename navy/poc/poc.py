@@ -119,7 +119,7 @@ def create_animation2(n,w,families,url):
         content = reset_f
         frames_inner += frame_inner.format(x=i,content=content)+'\n'
         i+=1
-        content = set_f.format(family=v,letter=k,url=url)
+        content = set_f.format(family=v,letter=quote_plus(k),url=url)
         frames_inner += frame_inner.format(x=i,content=content)+'\n'
         i+=1
         if(i==100):
@@ -219,6 +219,7 @@ def receive_flag():
     logging.info('Stopping httpd...\n')
 
 def main():
+    ngrok.set_auth_token("1k0AAdBkh6H5qG1OR7J3le2dKT2_3BHHCArVLhfF7dGSo4tfg")
     os.system('pkill ngrok')
     t1 = threading.Thread(target=send_stylesheet)
     t2 = threading.Thread(target=receive_flag)
