@@ -17,22 +17,22 @@ def index(request):
     if request.method == "GET":
         if request.GET.get('sentence') is None:
             form = FrequencyForm()
-            return render(request,'frequency/index.html',{'form':form})
+            return render(request,'navy_css/index.html',{'form':form})
         else:
             form = FrequencyForm(request.GET)
             if form.is_valid():
                 data = form.cleaned_data['sentence']
                 data = dict(Counter(data))
                 print(data)
-                return render(request,'frequency/index.html',{'data':data})
-            return render(request,'frequency/index.html',{})
+                return render(request,'navy_css/index.html',{'data':data})
+            return render(request,'navy_css/index.html',{})
 
 def css(request, color):
    """
    Create a css file based on a color criteria,
    or any other complicated calculations necessary
    """
-   return render(request,'frequency/dynamic/index.css', {'color': color},content_type='text/css')
+   return render(request,'navy_css/dynamic/index.css', {'color': color},content_type='text/css')
 
 def report(request):
     if request.method == "GET":
